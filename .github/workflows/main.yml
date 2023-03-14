@@ -13,13 +13,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-      - uses: actions/checkout@v3
+      - name: checkout
+        uses: actions/checkout@v3
 
-      - name: Running Test
-      - uses: ArtiomTr/jest-coverage-report-action@v2
+      - name: test coverage
+        uses: ArtiomTr/jest-coverage-report-action@v2
         with:
           working-directory: src
           package-manager: yarn
           test-script: yarn test:coverage
           annotations: none
+          output: report-markdown
+
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+        message: ${{ steps.coverage.outputs.report }}
