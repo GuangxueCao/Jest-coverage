@@ -18,13 +18,13 @@ jobs:
 
       - name: testCoverage
         uses: ArtiomTr/jest-coverage-report-action@v2
-        with:
-          working-directory: src
-          package-manager: yarn
-          test-script: yarn test:coverage
-          annotations: none
-          output: report-markdown
+          with:
+            working-directory: src
+            package-manager: yarn
+            test-script: yarn test:coverage
+            annotations: none
+            output: report-markdown
 
       - uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          message: ${{ steps.coverage.outputs.report }}
+          with:
+            message: ${{ steps.coverage.outputs.report }}
