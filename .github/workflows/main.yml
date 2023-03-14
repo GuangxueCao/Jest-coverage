@@ -16,7 +16,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
-      - name: test coverage
+      - name: testCoverage
         uses: ArtiomTr/jest-coverage-report-action@v2
         with:
           working-directory: src
@@ -27,4 +27,4 @@ jobs:
 
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
-        message: ${{ steps.coverage.outputs.report }}
+          message: ${{ steps.coverage.outputs.report }}
