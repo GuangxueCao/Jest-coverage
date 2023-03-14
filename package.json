@@ -5,6 +5,9 @@
   "repository": "git@github.com:GuangxueCao/Jest-coverage.git",
   "author": "GuangxueCao <Guangxue.Cao@neotechnology.com>",
   "license": "MIT",
+  "scripts": {
+    "test:coverage": "jest --coverage"
+  },
   "devDependencies": {
     "@babel/preset-typescript": "^7.21.0",
     "@jest/globals": "^29.5.0",

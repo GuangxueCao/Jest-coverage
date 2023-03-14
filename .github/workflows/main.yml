@@ -11,11 +11,15 @@ jobs:
       pull-requests: write
       contents: write
     runs-on: ubuntu-latest
+
     steps:
+      - name: Checkout Code
       - uses: actions/checkout@v3
-      - uses: jwalton/gh-find-current-pr@v1
-          id: findPr
+
+      - name: Running Test
       - uses: ArtiomTr/jest-coverage-report-action@v2
-          with:
-             prnumber: ${{ steps.findPr.outputs.number }}
-             output: comment
+        with:
+          working-directory: src
+          package-manager: yarn
+          test-script: yarn test:coverage
+          annotations: none
