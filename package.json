@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:GuangxueCao/Jest-coverage.git",
-  "author": "GuangxueCao <Guangxue.Cao@neotechnology.com>",
+  "author": "GuangxueCao",
   "license": "MIT",
   "scripts": {
     "test:coverage": "jest --coverage"
