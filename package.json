@@ -1,0 +1,16 @@
+{
+  "name": "jest-coverage",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:GuangxueCao/Jest-coverage.git",
+  "author": "GuangxueCao <Guangxue.Cao@neotechnology.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.21.0",
+    "@jest/globals": "^29.5.0",
+    "@types/jest": "^29.4.1"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.20.2"
+  }
+}
