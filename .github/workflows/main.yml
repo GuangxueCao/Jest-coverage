@@ -6,27 +6,13 @@ on:
       - main
 jobs:
   coverage:
-    permissions:
-      actions: write
-      checks: write
-      contents: write
-      deployments: write
-      issues: write
-      packages: write
-      pull-requests: write
-      repository-projects: write
-      security-events: write
-      statuses: write
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: yarn install
-
-      - uses: ArtiomTr/jest-coverage-report-action@v2
-        id: coverage
+      - name: Test and generate coverage report
+        uses: ArtiomTr/jest-coverage-report-action@v2
         with:
           working-directory: src
           package-manager: yarn
@@ -34,6 +20,7 @@ jobs:
           annotations: none
           output: report-markdown
 
-      - uses: marocchino/sticky-pull-request-comment@v2
+      - name: Test and generate coverage report
+        uses: marocchino/sticky-pull-request-comment@v2
         with:
           message: ${{ steps.coverage.outputs.report }}
