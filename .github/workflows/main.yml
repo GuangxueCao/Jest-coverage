@@ -1,0 +1,39 @@
+name: 'coverage'
+on:
+  pull_request:
+    branches:
+      - master
+      - main
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Checkout master code
+        run: git fetch --no-tags --depth=100 origin master
+    
+      - name: Install dependencies
+        env:
+          CI: true 
+        run: yarn install --frozen-lockfile
+
+      - name: test
+        run: npx jest --changedSince=origin/master --coverage --silent
+        env:
+          CI: true
+
+      # - name: Test and generate coverage report
+      #   uses: ArtiomTr/jest-coverage-report-action@v2
+      #   with:
+      #     working-directory: src
+      #     package-manager: yarn
+      #     test-script: yarn test:coverage
+      #     annotations: none
+      #     output: report-markdown
+
+      # - name: Test and generate coverage report
+      #   uses: marocchino/sticky-pull-request-comment@v2
+      #   with:
+      #     message: ${{ steps.coverage.outputs.report }}
